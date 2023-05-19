@@ -2,7 +2,7 @@ const express=require('express');
 var router = express.Router();
 const path = require('path');
 
-router.get('/js',function(req,res){
+router.get('/js-vnm',function(req,res){
     res.sendFile(path.join(__dirname+'/www/js/index.js'));
     //__dirname : It will resolve to your project folder.
 });
