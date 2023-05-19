@@ -1,0 +1,3 @@
+  "scripts": {
+    "start": "env TZ='Asia/Saigon' node client.js"
+  },
