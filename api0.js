@@ -1,4 +1,4 @@
-const {OtpModel, PhoneModel} = require('./farm-0-10000-db');
+const {OtpModel, PhoneModel} = require('./farm-0-db');
 const express=require('express');
 var router = express.Router();
 var request=require('request-promise');
