@@ -23,8 +23,8 @@ app.use(bodyParser.json());
 
 //app.use('/', web);
 //app.use(express.static(path.join(__dirname, 'www')));
-app.use('/api/farm-0', api0);
+app.use('/report-vnm/api/farm-0', api0);
 
-app.use('/', web);
+app.use('/report-vnm', web);
 //assuming app is express Object.
 console.log("Test");
