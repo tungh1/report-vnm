@@ -76,18 +76,18 @@ router.get('/otp/report', async (req, res) => {
   const count_microsoft = await OtpModel.count(filter_microsoft);
   
   var result = "<p id='farm0' total='" + lstOtp + "'><b>Total</b> (" + current_date + "-" + timeStamp.getTime() + "): " + lstOtp + " ^tp</b></br>";
-  result += "<b style='color:blue'>LinkedIn: <span id='linkedin_0'>" + count_linkedin_tha + "</span></b></br>";
-  result += "<b style='color:blue'>Apple: <span id='apple_0'>" + count_apple + "</span></b></br>";
-  result += "Microsoft: " + count_microsoft + "</br>";
-  result += "Line: " + count_line_tha + "</br>";
-  result += "Bigo: " + count_bigo_tha + "</br>";
-  result += "Discord: " + count_discord_tha + "</br>";
-  result += "Grab: " + count_grab_tha + "</br>";
-  result += "Agoda: " + count_agoda + "</br>";
-  result += "Garmin: " + count_garmin + "</br>";
-  result += "Viber: <span id='viber_0'>" + count_viber + "</span></br>";
-  result += "Kucoin: <span id='kucoin_0'>" + count_kucoin + "</span></br>";
-  result += "Huawei: " + count_huawei + "</p>";
+  // result += "<b style='color:blue'>LinkedIn: <span id='linkedin_0'>" + count_linkedin_tha + "</span></b></br>";
+  // result += "<b style='color:blue'>Apple: <span id='apple_0'>" + count_apple + "</span></b></br>";
+  result += "Microsoft: " + count_microsoft + "</p>";
+  // result += "Line: " + count_line_tha + "</br>";
+  // result += "Bigo: " + count_bigo_tha + "</br>";
+  // result += "Discord: " + count_discord_tha + "</br>";
+  // result += "Grab: " + count_grab_tha + "</br>";
+  // result += "Agoda: " + count_agoda + "</br>";
+  // result += "Garmin: " + count_garmin + "</br>";
+  // result += "Viber: <span id='viber_0'>" + count_viber + "</span></br>";
+  // result += "Kucoin: <span id='kucoin_0'>" + count_kucoin + "</span></br>";
+  // result += "Huawei: " + count_huawei + "</p>";
 
   res.send(result);
   
