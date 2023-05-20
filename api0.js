@@ -77,7 +77,7 @@ router.get('/otp/report', async (req, res) => {
   const count_microsoft = await OtpModel.count(filter_microsoft);
   const count_telegram = await OtpModel.count(filter_telegram);
   
-  var result = "<p id='farm0' total='" + lstOtp + "'><b>Total</b> (" + current_date + "-" + timeStamp.getTime() + "): " + lstOtp + " ^tp</b></br>";
+  var result = "<p id='farm0' total='" + lstOtp + "'>(" + current_date + "-" + timeStamp.getTime() + ") </br><b>Total</b>: " + lstOtp + " ^tp</b></br>";
   // result += "<b style='color:blue'>LinkedIn: <span id='linkedin_0'>" + count_linkedin_tha + "</span></b></br>";
   result += "<b style='color:blue'>Apple: <span id='apple_0'>" + count_apple + "</span></b></br>";
   result += "Microsoft: " + count_microsoft + "</br>";
