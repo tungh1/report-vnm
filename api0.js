@@ -27,8 +27,8 @@ var request=require('request-promise');
 
 // router.get('/otp/report-123', async (req, res) => {
 //     var current_date = new Date().toLocaleDateString();
-//     var timestamp = new Date(current_date);
-//     const filter = {timestamp: timestamp.getTime()};
+//     var timeStamp = new Date(current_date);
+//     const filter = {timeStamp: timeStamp.getTime()};
 
 //     const data = await OtpModel.aggregate().sortByCount("brand");
 //     const count_otp = await OtpModel.count(filter);
@@ -42,23 +42,23 @@ var request=require('request-promise');
 router.get('/otp/report', async (req, res) => {
 
   var current_date = new Date().toLocaleDateString();
-  var timestamp = new Date(current_date);
-  console.log(timestamp.getTime());
-  const filter = {timestamp: timestamp.getTime()};
-  const filter_linkedin = {timestamp: timestamp.getTime(), brand: 'LinkedIn'};
-  const filter_google = {timestamp: timestamp.getTime(), brand: 'Google'};
-  const filter_facebook = {timestamp: timestamp.getTime(), brand: 'Facebook'};
-  const filter_microsoft = {timestamp: timestamp.getTime(), brand: 'Microsoft'};
-  const filter_line = {timestamp: timestamp.getTime(), brand: 'Line'};
-  const filter_bigo = {timestamp: timestamp.getTime(), brand: 'Bigo'};
-  const filter_discord = {timestamp: timestamp.getTime(), brand: 'Discord'};
-  const filter_grab = {timestamp: timestamp.getTime(), brand: 'Grab'};
-  const filter_agoda = {timestamp: timestamp.getTime(), brand: 'Agoda'};
-  const filter_apple = {timestamp: timestamp.getTime(), brand: 'Apple'};
-  const filter_kucoin = {timestamp: timestamp.getTime(), brand: 'KuCoin'};
-  const filter_huawei = {timestamp: timestamp.getTime(), brand: 'Huawei'};
-  const filter_garmin = {timestamp: timestamp.getTime(), brand: 'Garmin'};
-  const filter_viber = {timestamp: timestamp.getTime(), brand: 'Viber'};
+  var timeStamp = new Date(current_date);
+  console.log(timeStamp.getTime());
+  const filter = {timeStamp: timeStamp.getTime()};
+  const filter_linkedin = {timeStamp: timeStamp.getTime(), brand: 'LinkedIn'};
+  const filter_google = {timeStamp: timeStamp.getTime(), brand: 'Google'};
+  const filter_facebook = {timeStamp: timeStamp.getTime(), brand: 'Facebook'};
+  const filter_microsoft = {timeStamp: timeStamp.getTime(), brand: 'Microsoft'};
+  const filter_line = {timeStamp: timeStamp.getTime(), brand: 'Line'};
+  const filter_bigo = {timeStamp: timeStamp.getTime(), brand: 'Bigo'};
+  const filter_discord = {timeStamp: timeStamp.getTime(), brand: 'Discord'};
+  const filter_grab = {timeStamp: timeStamp.getTime(), brand: 'Grab'};
+  const filter_agoda = {timeStamp: timeStamp.getTime(), brand: 'Agoda'};
+  const filter_apple = {timeStamp: timeStamp.getTime(), brand: 'Apple'};
+  const filter_kucoin = {timeStamp: timeStamp.getTime(), brand: 'KuCoin'};
+  const filter_huawei = {timeStamp: timeStamp.getTime(), brand: 'Huawei'};
+  const filter_garmin = {timeStamp: timeStamp.getTime(), brand: 'Garmin'};
+  const filter_viber = {timeStamp: timeStamp.getTime(), brand: 'Viber'};
 
   //const data = await OtpModel.aggregate().sortByCount("brand");
   const lstOtp = await OtpModel.count(filter);
@@ -75,7 +75,7 @@ router.get('/otp/report', async (req, res) => {
   const count_viber = await OtpModel.count(filter_viber);
   const count_microsoft = await OtpModel.count(filter_microsoft);
   
-  var result = "<p id='farm0' total='" + lstOtp + "'><b>Farm 0</b> (" + current_date + "-" + timestamp.getTime() + "): " + lstOtp + "</b></br>";
+  var result = "<p id='farm0' total='" + lstOtp + "'><b>Farm 0</b> (" + current_date + "-" + timeStamp.getTime() + "): " + lstOtp + "</b></br>";
   result += "<b style='color:blue'>LinkedIn: <span id='linkedin_0'>" + count_linkedin_tha + "</span></b></br>";
   result += "<b style='color:blue'>Apple: <span id='apple_0'>" + count_apple + "</span></b></br>";
   result += "Microsoft: " + count_microsoft + "</br>";
