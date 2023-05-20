@@ -15,7 +15,7 @@ var request=require('request-promise');
 
 // router.get('/otp', function(req, res) { 
 //   try {
-//     const filter = { phone_number: req.query.phone_number, branch_type: req.query.branch_type, status: req.query.status };
+//     const filter = { phone_number: req.query.phone_number, brand: req.query.brand, status: req.query.status };
 //     OtpModel.findOne(filter).then(function(models){
 //         res.send(models);
 //     }) 
@@ -30,7 +30,7 @@ var request=require('request-promise');
 //     var timestamp = new Date(current_date);
 //     const filter = {timestamp: timestamp.getTime()};
 
-//     const data = await OtpModel.aggregate().sortByCount("branch_type");
+//     const data = await OtpModel.aggregate().sortByCount("brand");
 //     const count_otp = await OtpModel.count(filter);
     
 //     var result = "<p>" + new Date() + "</p><p> "+ JSON.stringify(data)  +" </p><p>Total OTP: " + count_otp + "</p>";
@@ -45,21 +45,22 @@ router.get('/otp/report', async (req, res) => {
   var timestamp = new Date(current_date);
   console.log(timestamp.getTime());
   const filter = {timestamp: timestamp.getTime()};
-  const filter_linkedin = {timestamp: timestamp.getTime(), branch_type: 'LinkedIn'};
-  const filter_google = {timestamp: timestamp.getTime(), branch_type: 'Google'};
-  const filter_facebook = {timestamp: timestamp.getTime(), branch_type: 'Facebook'};
-  const filter_line = {timestamp: timestamp.getTime(), branch_type: 'Line'};
-  const filter_bigo = {timestamp: timestamp.getTime(), branch_type: 'Bigo'};
-  const filter_discord = {timestamp: timestamp.getTime(), branch_type: 'Discord'};
-  const filter_grab = {timestamp: timestamp.getTime(), branch_type: 'Grab'};
-  const filter_agoda = {timestamp: timestamp.getTime(), branch_type: 'Agoda'};
-  const filter_apple = {timestamp: timestamp.getTime(), branch_type: 'Apple'};
-  const filter_kucoin = {timestamp: timestamp.getTime(), branch_type: 'KuCoin'};
-  const filter_huawei = {timestamp: timestamp.getTime(), branch_type: 'Huawei'};
-  const filter_garmin = {timestamp: timestamp.getTime(), branch_type: 'Garmin'};
-  const filter_viber = {timestamp: timestamp.getTime(), branch_type: 'Viber'};
+  const filter_linkedin = {timestamp: timestamp.getTime(), brand: 'LinkedIn'};
+  const filter_google = {timestamp: timestamp.getTime(), brand: 'Google'};
+  const filter_facebook = {timestamp: timestamp.getTime(), brand: 'Facebook'};
+  const filter_microsoft = {timestamp: timestamp.getTime(), brand: 'Microsoft'};
+  const filter_line = {timestamp: timestamp.getTime(), brand: 'Line'};
+  const filter_bigo = {timestamp: timestamp.getTime(), brand: 'Bigo'};
+  const filter_discord = {timestamp: timestamp.getTime(), brand: 'Discord'};
+  const filter_grab = {timestamp: timestamp.getTime(), brand: 'Grab'};
+  const filter_agoda = {timestamp: timestamp.getTime(), brand: 'Agoda'};
+  const filter_apple = {timestamp: timestamp.getTime(), brand: 'Apple'};
+  const filter_kucoin = {timestamp: timestamp.getTime(), brand: 'KuCoin'};
+  const filter_huawei = {timestamp: timestamp.getTime(), brand: 'Huawei'};
+  const filter_garmin = {timestamp: timestamp.getTime(), brand: 'Garmin'};
+  const filter_viber = {timestamp: timestamp.getTime(), brand: 'Viber'};
 
-  //const data = await OtpModel.aggregate().sortByCount("branch_type");
+  //const data = await OtpModel.aggregate().sortByCount("brand");
   const lstOtp = await OtpModel.count(filter);
   const count_linkedin_tha = await OtpModel.count(filter_linkedin);
   const count_line_tha = await OtpModel.count(filter_line);
@@ -72,10 +73,12 @@ router.get('/otp/report', async (req, res) => {
   const count_huawei = await OtpModel.count(filter_huawei);
   const count_garmin = await OtpModel.count(filter_garmin);
   const count_viber = await OtpModel.count(filter_viber);
+  const count_microsoft = await OtpModel.count(filter_microsoft);
   
   var result = "<p id='farm0' total='" + lstOtp + "'><b>Farm 0</b> (" + current_date + "-" + timestamp.getTime() + "): " + lstOtp + "</b></br>";
   result += "<b style='color:blue'>LinkedIn: <span id='linkedin_0'>" + count_linkedin_tha + "</span></b></br>";
   result += "<b style='color:blue'>Apple: <span id='apple_0'>" + count_apple + "</span></b></br>";
+  result += "Microsoft: " + count_microsoft + "</br>";
   result += "Line: " + count_line_tha + "</br>";
   result += "Bigo: " + count_bigo_tha + "</br>";
   result += "Discord: " + count_discord_tha + "</br>";
