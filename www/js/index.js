@@ -6,7 +6,7 @@
       .then(response=> response.text())
         .then(text=> { 
             appendData(text, "farm-0");
-            setTimeout(intervalFunc, 10000);
+            setTimeout(intervalFunc, 5000);
             console.log(totalOtp);
         })
         .catch(function (err) {
